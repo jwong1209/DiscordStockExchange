@@ -1,7 +1,12 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { getDatabase, ref, set, onValue, update, get, child } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`)
+})
 
 const firebaseConfig = {
     apiKey: "AIzaSyCxjN-1_hgA0sC6zJsuL6P3QO5l9_KmSEU",
