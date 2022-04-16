@@ -1,3 +1,4 @@
+TOKEN = OTYzMDk1MzQ5MTg1MDk3Nzc5.YlRGcA.RcUTdksOxZwQHBZIYZtS47g0Gq0;
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
