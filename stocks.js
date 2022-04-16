@@ -4,9 +4,6 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { getDatabase, ref, set, onValue, update, get, child } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
 
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`)
-})
 
 const firebaseConfig = {
     apiKey: "AIzaSyCxjN-1_hgA0sC6zJsuL6P3QO5l9_KmSEU",
@@ -23,6 +20,23 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app);
 
+//Connect discord bot
+const Discord = require("discord.js")
+const client = new Discord.Client()
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`)
+})
+
+client.on("message", msg => {
+  if (msg.content === "ping") {
+    msg.reply("pong");
+  }
+})
+
+client.login(process.env.TOKEN)
+
+//Continue Initialize Firebase
 let currentUser = "";
 
 let loginButton = document.getElementById('login-button');
