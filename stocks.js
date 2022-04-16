@@ -82,7 +82,7 @@ buyButton.addEventListener('click', function() {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `users/${currentUser}/balance`)).then((snapshot) => {
         const data = snapshot.val();
-        let balance = parseInt(data);
+        let balance = parseFloat(data);
 
         fetch(`https://finnhub.io/api/v1/quote?symbol=${stockSymbol}&token=sandbox_c1clrp748v6vbcpf4jt0`)
         .then(response => response.json())
@@ -117,7 +117,7 @@ buyButton.addEventListener('click', function() {
 let sellButton = document.getElementById('sell-button');
 sellButton.addEventListener('click', function() {
     let stockSymbol = document.getElementById('sell-symbol').value;
-    let sellAmount = parseInt(document.getElementById('sell-amount').value);
+    let sellAmount = parseFloat(document.getElementById('sell-amount').value);
 
     let dbRef = ref(getDatabase());
     get(child(dbRef, `users/${currentUser}/${stockSymbol}`)).then((snapshot) => {
