@@ -77,7 +77,7 @@ createAccountButton.addEventListener('click', function() {
 let buyButton = document.getElementById('buy-button');
 buyButton.addEventListener('click', function() {    
     let stockSymbol = document.getElementById('buy-symbol').value;
-    let buyAmount = parseInt(document.getElementById('buy-amount').value);
+    let buyAmount = parseFloat(document.getElementById('buy-amount').value);
 
     const dbRef = ref(getDatabase());
     get(child(dbRef, `users/${currentUser}/balance`)).then((snapshot) => {
@@ -121,7 +121,7 @@ sellButton.addEventListener('click', function() {
 
     let dbRef = ref(getDatabase());
     get(child(dbRef, `users/${currentUser}/${stockSymbol}`)).then((snapshot) => {
-        let stockAmount = parseInt(snapshot.val());
+        let stockAmount = parseFloat(snapshot.val());
         if(stockAmount >= sellAmount) {
             let newStockAmount = stockAmount - sellAmount;
             let newStockAmountObj = {}
