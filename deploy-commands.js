@@ -1,4 +1,3 @@
-//npm install @discordjs/builders @discordjs/rest discord-api-types
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
